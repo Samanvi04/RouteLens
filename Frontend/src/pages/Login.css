@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* Full page background */
+.login-page {
+  height: 100vh;
+  width: 100%;
+  background: #0c1117; /* Deep premium dark */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Center card */
+.login-card {
+  width: 350px;
+  background: #131a22;
+  padding: 32px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e8e8e8;
+}
+
+/* Titles */
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 22px;
+}
+
+/* Input fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.field input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: #0f141a;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.field input:focus {
+  border-color: #00eaff;
+}
+
+/* Login button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #00c8e9;
+  color: #001014;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-btn:hover {
+  background: #00b0cc;
+}
+
+/* Bottom line */
+.register-line {
+  margin-top: 16px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.register-line span {
+  color: #00c8e9;
+  cursor: pointer;
+  font-weight: 500;
+}
+.login-page {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/src/pages/images/bus1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55); 
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+}
+/* Page wrapper */
+.register-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/images/bus1.jpg"); /* Your local image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Add overlay for readability */
+.register-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(1px);
+}
+
+/* Bring card above overlay */
+.register-box {
+  position: relative;
+  z-index: 2;
+}
+.register-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/images/bus1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.register-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(1px);
+}

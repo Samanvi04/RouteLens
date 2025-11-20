@@ -1,0 +1,272 @@
+/* ================================
+   BACKGROUND IMAGE (FULL PAGE)
+   ================================ */
+
+.admin-container {
+  background-image: url("/mnt/data/43f41871-ce91-4907-9824-30e1ea36c827.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  min-height: 100vh;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Overlay for readability */
+.admin-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+
+/* Makes all content appear above overlay */
+.admin-content, .top-toolbar {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================================
+   TOP TOOLBAR
+   ================================ */
+.top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 45px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.admin-logo {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00eaff, #00ff95);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.toolbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.toolbar-menu li {
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.toolbar-menu li:hover {
+  color: #a6d8ff;
+}
+
+.admin-profile {
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+/* ================================
+   MAIN CONTENT
+   ================================ */
+
+.admin-content {
+  padding-top: 120px;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+/* Section spacing */
+.admin-section {
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.subtitle {
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+/* ================================
+   KPI CARDS
+   ================================ */
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 22px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.25);
+}
+
+.card .icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #00eaff;
+}
+
+.card h3 {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.card p {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* ================================
+   ANALYTICS CARDS
+   ================================ */
+
+.analytics-card {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.chart-placeholder,
+.map-placeholder {
+  background: rgba(0,0,0,0.35);
+  border-radius: 10px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed rgba(255,255,255,0.3);
+  opacity: 0.8;
+}
+/* ----------------------------
+   ADMIN BACKGROUND IMAGE
+---------------------------- */
+.admin-container {
+  font-family: Arial, sans-serif;
+
+  /* your downloaded image - NOT A URL */
+  background-image: url("/mnt/data/43f41871-ce91-4907-9824-30e1ea36c827.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+  position: relative;
+  color: white;
+}
+
+.admin-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* Toolbar */
+.top-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px;
+  z-index: 100;
+}
+
+.toolbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.toolbar-menu li {
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.toolbar-menu li:hover {
+  color: #d3eaff;
+}
+
+.admin-welcome {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-start {
+  padding: 12px 30px;
+  background: #00a8ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  margin-top: 20px;
+}
+/* ========================================
+   FULL PAGE BACKGROUND (Downloaded Image)
+======================================== */
+
+.admin-container {
+  font-family: "Poppins", sans-serif;
+
+  /* 🔵 Using your downloaded file (NOT a URL) */
+  background-image: url("/src/pages/images/unnamed.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+  color: white;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+.admin-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}

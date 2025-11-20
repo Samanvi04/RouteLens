@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* ============= FULL BACKGROUND ============= */
+.reg-bg {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/images/bus1.jpg");   /* <-- Your local image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+.reg-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(2px);
+}
+
+/* ============= REGISTER CONTAINER ============= */
+.reg-panel {
+  width: 390px;
+  padding: 38px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  color: white;
+  position: relative;
+  z-index: 2; /* Above overlay */
+}
+
+/* ============= HEADINGS ============= */
+.reg-panel h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.reg-desc {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 28px;
+}
+
+/* ============= INPUT GROUP ============= */
+.reg-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.reg-group label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.reg-group input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  outline: none;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.reg-group input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.reg-group input:focus {
+  border-color: #00d7ff;
+}
+
+/* ============= SUBMIT BUTTON ============= */
+.reg-submit {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #00d7ff;
+  color: #001316;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.25s ease;
+}
+
+.reg-submit:hover {
+  background: #00c4e6;
+  transform: translateY(-1px);
+}
+
+/* ============= FOOTER TEXT ============= */
+.reg-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.85;
+  text-align: center;
+}
+
+.reg-footer span {
+  color: #00d7ff;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 500;
+}
+.reg-bg {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.reg-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(2px);
+}
+
+.reg-panel {
+  width: 390px;
+  padding: 38px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(10px);
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+.reg-panel {
+  width: 390px;
+  padding: 38px;
+  background: #0a1a2f; /* Solid deep blue */
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: white;
+  position: relative;
+  z-index: 2;
+}
