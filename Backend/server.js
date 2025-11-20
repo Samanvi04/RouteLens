@@ -4,6 +4,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { runMigrations } from "./migrations.js";
+import morgan from 'morgan';
+
 
 import authRoutes from "./routes/authRoutes.js";
 import studentRoutes from "./routes/students.js";
@@ -27,6 +29,7 @@ app.use(
 );
 
 app.use(express.json());
+app.use(morgan('combined'));
 
 // -------------------- RUN MIGRATIONS --------------------
 // Wrapped in try/catch so server STILL STARTS on migration failure
