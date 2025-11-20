@@ -1,0 +1,172 @@
+.reg-container {
+  height: 100vh;
+  background: url("../images/bus1.jpg") center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.reg-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.reg-box {
+  width: 380px;
+  padding: 35px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 14px;
+  z-index: 2;
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+}
+
+.reg-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reg-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.reg-box button {
+  width: 100%;
+  padding: 12px;
+  background: #b599ff;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+}
+/* ===================== GLOBAL ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===================== BACKGROUND ===================== */
+.student-reg-bg {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Dark overlay */
+.student-reg-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+/* ===================== FLOATING EMOJIS ===================== */
+.stu-emoji {
+  position: absolute;
+  font-size: 44px;
+  z-index: 2;
+  opacity: 0.9;
+  animation: float 4s ease-in-out infinite;
+}
+
+.se1 { top: 22px; left: 22px; animation-delay: 0s; }
+.se2 { top: 22px; right: 22px; animation-delay: 1s; }
+.se3 { bottom: 22px; left: 22px; animation-delay: 2s; }
+.se4 { bottom: 22px; right: 22px; animation-delay: 3s; }
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===================== FORM BOX ===================== */
+.student-reg-box {
+  width: 400px;
+  padding: 35px;
+
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  z-index: 5;
+
+  animation: fadeIn 0.9s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.student-reg-box h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+/* ===================== INPUTS ===================== */
+.student-reg-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+}
+
+.student-reg-box input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.student-reg-box input:focus {
+  border-color: #6de0ff;
+}
+
+/* ===================== BUTTON ===================== */
+.student-reg-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+
+  background: #00d7ff;
+  color: #002125;
+
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.student-reg-box button:hover {
+  background: #00c4e6;
+  transform: translateY(-2px);
+}

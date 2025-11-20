@@ -176,3 +176,230 @@
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(1px);
 }
+/* ======================= BACKGROUND ======================= */
+.login-page {
+  height: 100vh;
+  background: url("../images/bus1.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+/* ======================= LOGIN CARD ====================== */
+.login-card {
+  width: 360px;
+  background: rgba(255,255,255,0.07);
+  padding: 35px;
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.role {
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.field input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(0,0,0,0.35);
+  color: white;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #00eaff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+  color: #00252b;
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  background: #00c4d6;
+}
+
+/* FOOTER */
+.register-line {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.register-line span {
+  color: #00eaff;
+  cursor: pointer;
+  margin-left: 5px;
+}
+/* ====================== BACKGROUND ====================== */
+
+.login-page {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Dark Overlay */
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+/* ====================== FLOATING EMOJIS ====================== */
+
+.login-emoji {
+  position: absolute;
+  font-size: 45px;
+  z-index: 2;
+  opacity: 0.85;
+  animation: float 4s ease-in-out infinite;
+}
+
+.le1 { top: 20px; left: 25px; animation-delay: 0s; }
+.le2 { top: 25px; right: 30px; animation-delay: 1s; }
+.le3 { bottom: 30px; left: 30px; animation-delay: 2s; }
+.le4 { bottom: 25px; right: 20px; animation-delay: 3s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ====================== CARD ====================== */
+
+.login-card {
+  width: 380px;
+  padding: 35px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  text-align: center;
+  color: white;
+  z-index: 5;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====================== TEXT STYLING ====================== */
+
+.title {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.role {
+  margin-bottom: 22px;
+  opacity: 0.85;
+}
+
+/* ====================== INPUT FIELDS ====================== */
+
+.field {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  outline: none;
+  color: white;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.field input:focus {
+  border-color: #00d7ff;
+}
+
+/* ====================== BUTTON ====================== */
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #00d7ff;
+  color: #002125;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background: #00bcd4;
+  transform: translateY(-2px);
+}
+
+/* ====================== REGISTER LINK ====================== */
+
+.register-line {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register-line span {
+  color: #00d7ff;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 500;
+}

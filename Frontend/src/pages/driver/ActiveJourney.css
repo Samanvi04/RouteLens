@@ -1,0 +1,48 @@
+.aj-page {
+  padding: 100px 40px;
+}
+
+.aj-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.aj-map {
+  width: 100%;
+  height: 300px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aj-placeholder {
+  opacity: 0.7;
+  font-size: 18px;
+}
+
+.aj-info {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.aj-stop {
+  padding: 12px 20px;
+  width: 100%;
+  background: #ffc107;
+  border: none;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.aj-end {
+  padding: 12px 20px;
+  width: 100%;
+  background: #dc3545;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}

@@ -1,20 +1,14 @@
 import React from "react";
-import "./DriverDashboard.css";
+import "./StartJourney.css";
 
 export default function StartJourney() {
   return (
-    <div className="page-container">
-      <h2 className="page-title">Start Journey</h2>
+    <div className="sj-page">
+      <h1 className="sj-title">🚦 Ready to Start Journey?</h1>
 
-      <div className="start-journey-box">
-        <p className="info-text">
-          Press the button below to begin your journey tracking.
-        </p>
+      <p className="sj-text">Make sure you selected bus & vehicle.</p>
 
-        <button className="btn-primary journey-btn">
-          Start Journey
-        </button>
-      </div>
+      <button className="sj-btn">Start Journey 🚀</button>
     </div>
   );
 }

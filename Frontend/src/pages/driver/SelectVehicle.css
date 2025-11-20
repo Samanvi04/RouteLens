@@ -1,0 +1,42 @@
+.dv-page {
+  padding: 100px 40px;
+}
+
+.dv-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.dv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dv-item {
+  padding: 15px;
+  background: rgba(0, 200, 150, 0.12);
+  border: 1px solid #00c897;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.dv-item:hover {
+  background: rgba(0, 200, 150, 0.3);
+}
+
+.dv-item.active {
+  background: #00c897;
+  color: white;
+}
+
+.dv-btn {
+  margin-top: 25px;
+  padding: 12px 20px;
+  background: #00c897;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
