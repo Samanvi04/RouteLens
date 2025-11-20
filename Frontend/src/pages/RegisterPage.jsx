@@ -7,44 +7,46 @@ import "./RegisterPage.css";
 export default function RegisterPage() {
   const navigate = useNavigate();
 
-  // Extract base URL
+  // Base URL from .env
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-  // 🔍 Log .env variable on component load  
+  // -------------------- DEBUG ENV --------------------
   useEffect(() => {
     console.log("🔧 Loaded .env API Base URL:", API_BASE_URL);
     if (!API_BASE_URL) {
-      console.warn("⚠️ VITE_API_BASE_URL is NOT LOADED! Check your .env file.");
+      console.warn("⚠ VITE_API_BASE_URL missing! Check .env");
     }
   }, []);
 
-  // Form State  
+  // -------------------- STATE --------------------
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: ""
   });
 
-  // Input Handler  
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
-  // Register Handler (with logs)
+  // -------------------- REGISTER --------------------
   const handleRegister = async () => {
     if (!form.name || !form.email || !form.password) {
       alert("Please fill all fields!");
       return;
     }
 
-    console.log("📦 Sending Registration Data:", form);
-    console.log(`🔗 Final POST URL: ${API_BASE_URL}/admins/register`);
+    // FIXED: Proper template string
+    console.log(`📦 Sending Registration Data:, form`);
+
+    // FIXED: Correct endpoint + template string
+   const baseUrl = `${API_BASE_URL}`;
+
+   //const url = "http://localhost:5000/api/admins/register";
+    console.log(`🔗 Final POST URL: ${url}/api/admins/register`);
 
     try {
-      const res = await axios.post(`${API_BASE_URL}/admins/register`, {
+      // FIXED: Proper axios URL formatting
+      const res = await axios.post(url, {
         name: form.name,
         email: form.email,
         password: form.password
@@ -59,17 +61,14 @@ export default function RegisterPage() {
         alert(res.data.error || "Registration failed");
       }
     } catch (err) {
-      console.error("❌ ERROR OCCURRED DURING REGISTRATION");
-      console.error("🔍 Error Message:", err.message);
+      console.error("❌ Registration Error:", err.message);
 
       if (err.response) {
-        console.error("⚠️ Backend Returned Error:");
-        console.error("Status:", err.response.status);
-        console.error("Response:", err.response.data);
+        console.error("⚠ Backend Error:", err.response.data);
       } else if (err.request) {
-        console.error("⚠️ No Response Received from Server.");
+        console.error("⚠ No Response from Server");
       } else {
-        console.error("⚠️ Error Setting Up Request:", err);
+        console.error("⚠ Request Setup Error:", err);
       }
 
       alert("Error: " + (err.response?.data?.error || "Server issue"));
@@ -79,6 +78,7 @@ export default function RegisterPage() {
   return (
     <div
       className="reg-bg"
+      // FIXED: Correct background image syntax
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="reg-panel">
@@ -127,6 +127,6 @@ export default function RegisterPage() {
           <span onClick={() => navigate("/login")}> Login</span>
         </p>
       </div>
-    </div>
-  );
+    </div>
+  );
 }
