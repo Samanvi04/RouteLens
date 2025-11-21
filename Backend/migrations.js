@@ -88,13 +88,15 @@ export const runMigrations = async () => {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS stops (
         id BIGINT AUTO_INCREMENT PRIMARY KEY,
-        route_id BIGINT NOT NULL,
+        route_id BIGINT DEFAULT NULL,
+        bus_id BIGINT DEFAULT NULL,
         name VARCHAR(255) NOT NULL,
         latitude DOUBLE,
         longitude DOUBLE,
         stop_order INT DEFAULT 0,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (route_id) REFERENCES routes(id) ON DELETE CASCADE
+        FOREIGN KEY (route_id) REFERENCES routes(id) ON DELETE CASCADE,
+        FOREIGN KEY (bus_id) REFERENCES buses(id) ON DELETE CASCADE
       )
     `);
     console.log("✔ Stops table ready");
@@ -115,6 +117,7 @@ export const runMigrations = async () => {
     await ensureColumn('students', 'lng', 'DOUBLE DEFAULT NULL');
     await ensureColumn('drivers', 'lat', 'DOUBLE DEFAULT NULL');
     await ensureColumn('drivers', 'lng', 'DOUBLE DEFAULT NULL');
+    await ensureColumn('stops', 'bus_id', 'BIGINT DEFAULT NULL');
 
     console.log("All migrations completed successfully!");
   } catch (err) {
