@@ -18,12 +18,17 @@ import StartJourney from "/src/pages/driver/StartJourney";
 
 import DriverProfile from "/src/pages/driver/DriverProfile";
 import StudentSubscriptions from "/src/pages/student/StudentSubscription";
-import LiveTracking from "/src/pages/student/LiveTracking";
+
 
 import StudentHistory from "/src/pages/student/StudentHistory";
 
 
-import DriversBuses from "/src/pages/admin/DriverBuses";
+
+import AdminCrowd from "./pages/Admin/AdminCrowd";
+
+import ChatBot from "./pages/Student/ChatBot"; 
+
+import RatingPage from "./pages/Student/RatingPage";
 
 import Assignments from "/src/pages/admin/Assignments";
 import LiveMap from "/src/pages/admin/LiveMap";
@@ -54,13 +59,11 @@ export default function App() {
         <Route path="/driver/profile" element={<DriverProfile />} />
         <Route path="/student/dashboard" element={<StudentDashboard />} />
 <Route path="/student/subscriptions" element={<StudentSubscriptions />} />
-<Route path="/student/live-tracking" element={<LiveTracking />} />
+
 
 <Route path="/student/history" element={<StudentHistory />} />
   <Route path="/admin/dashboard" element={<AdminDashboard />} />
    
-        <Route path="/admin/drivers-buses" element={<DriversBuses />} />
-       
         <Route path="/admin/assignments" element={<Assignments />} />
         <Route path="/admin/live-map" element={<LiveMap />} />
         <Route path="/admin/maintenance" element={<Maintenance />} />
@@ -68,7 +71,9 @@ export default function App() {
         <Route path="/register/admin" element={<AdminRegister />} />
         <Route path="/register/driver" element={<DriverRegister />} />
         <Route path="/register/student" element={<StudentRegister />} />
-
+<Route path="/admin/crowd" element={<AdminCrowd />} />
+ <Route path="/student/chatbot" element={<ChatBot />} />
+ <Route path="/student/rating" element={<RatingPage />} />
 
       </Routes>
     </Router>

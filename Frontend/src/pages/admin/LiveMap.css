@@ -2,3 +2,181 @@
 .map-area { display:flex; gap:20px; align-items:flex-start; }
 .map-placeholder { flex:1; height:420px; border-radius:12px; background: rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; color:#ddd; }
 .mini-stats { width:320px; background: rgba(255,255,255,0.06); padding:12px; border-radius:8px; }
+.livemap-page {
+  background: #0a3d62; /* BLUE BACKGROUND */
+  color: white;        /* WHITE TEXT */
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.panel {
+  background: rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 25px;
+  backdrop-filter: blur(4px);
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* SELECTOR ROW */
+.selector-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.selector-row label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bus-select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #165a8f;
+  color: white;
+  font-size: 14px;
+}
+
+.bus-select option {
+  color: rgb(244, 236, 236);
+}
+
+/* MAP AREA */
+.map-area {
+  margin-top: 20px;
+}
+
+.map-container {
+  background: rgba(238, 230, 230, 0.09);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.map-placeholder {
+  background: rgba(0,0,0,0.3);
+  height: 350px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #dcecff;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.bus-details {
+  background: rgba(255,255,255,0.15);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* Buttons */
+.btn-secondary {
+  padding: 10px 16px;
+  background: #1e90ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #4aa3ff;
+}
+.livemap-container {
+  background: #0d131a;
+  color: white;
+  min-height: 100vh;
+  padding: 25px;
+  font-family: "Inter", sans-serif;
+}
+
+/* HEADER */
+.lm-header {
+  margin-bottom: 25px;
+}
+
+.lm-header h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* BUS SELECTOR */
+.selector-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bus-select {
+  padding: 10px 14px;
+  background: #090909;
+  border: 1px solid #3ea6ff;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.bus-select option {
+  background: #10161d;
+}
+
+/* FULL MAP AREA */
+.full-map-area {
+  background: #1a222d;
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 15px;
+  min-height: 70vh;
+  border: 1px solid rgba(62,166,255,0.3);
+}
+
+/* MAP BOX */
+.selected-map-box h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #3ea6ff;
+}
+
+/* The placeholder map that fills the page */
+.map-placeholder {
+  width: 100%;
+  height: 55vh;
+  background: #0f1722;
+  border-radius: 14px;
+  border: 1px solid #2d3a4a;
+  color: #7aa7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.map-placeholder.empty {
+  color: #b8c0cf;
+}
+
+/* DETAILS BOX */
+.bus-details {
+  background: #0f1722;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #3ea6ff50;
+  font-size: 15px;
+  line-height: 1.6;
+}

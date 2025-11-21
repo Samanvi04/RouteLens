@@ -1,0 +1,82 @@
+.rating-page {
+  background: #0d131a;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.rating-title {
+  font-size: 32px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.rating-card {
+  background: #1a222d;
+  width: 400px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.1);
+}
+
+.rating-card label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  color: #9bb1c9;
+  font-size: 14px;
+}
+
+.rating-card select {
+  width: 100%;
+  padding: 10px;
+  background: #12181f;
+  border: 1px solid #3a434e;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.stars {
+  margin: 15px 0;
+}
+
+.star {
+  font-size: 32px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
+}
+
+.star.active {
+  color: gold;
+  transform: scale(1.2);
+}
+
+.submit-btn {
+  background: #3ea6ff;
+  border: none;
+  padding: 12px 20px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #65c1ff;
+}
+
+.success-msg {
+  margin-top: 15px;
+  color: #78ff78;
+  font-size: 16px;
+  font-weight: 600;
+}

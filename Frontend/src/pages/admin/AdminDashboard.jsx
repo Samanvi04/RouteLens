@@ -13,10 +13,12 @@ export default function AdminDashboard() {
         <h2 className="admin-logo">Admin Dashboard</h2>
 
         <ul>
-          <li onClick={() => navigate("/admin/driversbuses")}>Drivers & Buses</li>
           <li onClick={() => navigate("/admin/assignments")}>Assignments</li>
           <li onClick={() => navigate("/admin/live-map")}>Live Map</li>
           <li onClick={() => navigate("/admin/maintenance")}>Maintenance</li>
+
+          {/* ⭐ NEW CROWD BUTTON */}
+          <li onClick={() => navigate("/admin/crowd")}>Crowd</li>
         </ul>
       </nav>
 

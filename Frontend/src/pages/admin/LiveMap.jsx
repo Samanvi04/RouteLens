@@ -1,44 +1,76 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import "./LiveMap.css";
 
-const API = import.meta.env.VITE_API_BASE_URL;
-
 export default function LiveMap() {
-  const [buses, setBuses] = useState([]);
 
-  useEffect(() => {
-    fetchBuses();
-    // optional: setInterval to poll positions
-  }, []);
+  // 🔷 STATIC 10 BUSES (same drivers, routes & numbering used earlier)
+  const busesList = [
+    { id: "1", plate: "BUS-1", driverName: "Ramesh Kumar", routeName: "Vijaynagar → Mysore Palace", lastUpdate: "Just now", eta: "12 mins" },
+    { id: "2", plate: "BUS-2", driverName: "Suresh Yadav", routeName: "Bogadi → Mysore Palace", lastUpdate: "1 min ago", eta: "8 mins" },
+    { id: "3", plate: "BUS-3", driverName: "Mahesh Gowda", routeName: "Hebbal → Mysore Palace", lastUpdate: "3 mins ago", eta: "15 mins" },
+    { id: "4", plate: "BUS-4", driverName: "Vijay Kumar", routeName: "Jayalakshmipuram → Mysore Palace", lastUpdate: "5 mins ago", eta: "10 mins" },
+    { id: "5", plate: "BUS-5", driverName: "Lokesh", routeName: "Saraswathipuram → Mysore Palace", lastUpdate: "Just now", eta: "7 mins" },
+    { id: "6", plate: "BUS-6", driverName: "Pradeep", routeName: "Nanjangud Road → Mysore Palace", lastUpdate: "2 mins ago", eta: "11 mins" },
+    { id: "7", plate: "BUS-7", driverName: "Shankar", routeName: "Hootagalli → Mysore Palace", lastUpdate: "4 mins ago", eta: "9 mins" },
+    { id: "8", plate: "BUS-8", driverName: "Harish", routeName: "Srirampura → Mysore Palace", lastUpdate: "6 mins ago", eta: "16 mins" },
+    { id: "9", plate: "BUS-9", driverName: "Vishal", routeName: "KR Nagar Road → Mysore Palace", lastUpdate: "7 mins ago", eta: "13 mins" },
+    { id: "10", plate: "BUS-10", driverName: "Lokesh", routeName: "Suttur Road → Mysore Palace", lastUpdate: "5 mins ago", eta: "10 mins" }
+  ];
 
-  const fetchBuses = async () => {
-    try {
-      const res = await axios.get(`${API}/live/buses`);
-      setBuses(res.data?.data || res.data || []);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const [buses] = useState(busesList);
+  const [selectedBus, setSelectedBus] = useState(null);
 
   return (
-    <div className="admin-page livemap-page">
-      <div className="panel">
-        <h2>Live Map & Tracking 🗺️</h2>
+    <div className="livemap-container">
 
-        <div className="map-area">
-          {/* Placeholder area — replace with real map */}
-          <div className="map-placeholder">Map Canvas Placeholder</div>
+      {/* HEADER */}
+      <div className="lm-header">
+        <h2>🗺️ Live Map & Tracking</h2>
 
-          <div className="mini-stats">
-            <h3>Active Buses</h3>
-            <ul>
-              {buses.length===0 && <li className="muted">No active buses (sample)</li>}
-              {buses.map(b => <li key={b.id || b._id}>{b.plate} — {b.routeName || "Route"} — ETA {b.eta || "-"}</li>)}
-            </ul>
-            <button className="btn-secondary" onClick={fetchBuses}>Refresh</button>
-          </div>
+        <div className="selector-row">
+          <label>Select Bus</label>
+          <select
+            className="bus-select"
+            onChange={(e) => {
+              const chosen = buses.find((b) => b.id === e.target.value);
+              setSelectedBus(chosen || null);
+            }}
+          >
+            <option value="">Choose a bus</option>
+            {buses.map((b) => (
+              <option key={b.id} value={b.id}>
+                {b.plate} — {b.routeName}
+              </option>
+            ))}
+          </select>
         </div>
+      </div>
+
+      {/* FULL MAP AREA */}
+      <div className="full-map-area">
+
+        {selectedBus ? (
+          <div className="selected-map-box">
+            <h3>Live Tracking — {selectedBus.plate}</h3>
+
+            <div className="map-placeholder">
+              {/* Replace with Google Maps later */}
+              Showing live map for <strong>{selectedBus.plate}</strong>
+            </div>
+
+            <div className="bus-details">
+              <p><strong>Driver:</strong> {selectedBus.driverName}</p>
+              <p><strong>Route:</strong> {selectedBus.routeName}</p>
+              <p><strong>Last Updated:</strong> {selectedBus.lastUpdate}</p>
+              <p><strong>ETA:</strong> {selectedBus.eta}</p>
+            </div>
+
+          </div>
+        ) : (
+          <div className="map-placeholder empty">
+            Select a bus to view the live map
+          </div>
+        )}
 
       </div>
     </div>
