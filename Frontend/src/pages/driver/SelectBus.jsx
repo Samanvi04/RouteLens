@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SelectBus.css";
 
 export default function SelectBus() {
+  const navigate = useNavigate();
   const [selectedBus, setSelectedBus] = useState("");
+
+  // In this UI we navigate to the same page after clicking any bus card.
+  // We save the selected bus to localStorage so the landing page can read it.
 
   const buses = [
     {
@@ -67,7 +72,12 @@ export default function SelectBus() {
           <div
             key={bus.number}
             className={`db-bus-item ${selectedBus === bus.number ? "active" : ""}`}
-            onClick={() => setSelectedBus(bus.number)}
+            onClick={() => {
+              // store selection and navigate to the shared route
+              setSelectedBus(bus.number);
+              try { localStorage.setItem('selectedBus', bus.number); } catch (e) { /* ignore */ }
+              navigate('/driver/start-journey');
+            }}
           >
             <div className="bus-header">
               <h3>{bus.number}</h3>
@@ -87,7 +97,14 @@ export default function SelectBus() {
         ))}
       </div>
 
-      <button className="db-btn-primary" disabled={!selectedBus}>
+      <button
+        className="db-btn-primary"
+        disabled={!selectedBus}
+        onClick={() => {
+          try { localStorage.setItem('selectedBus', selectedBus); } catch (e) {}
+          navigate('/driver/start-journey');
+        }}
+      >
         Confirm Bus ✔
       </button>
     </div>

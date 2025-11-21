@@ -2,11 +2,9 @@ import { dbQuery } from "../utils/dbQuery.js";
 
 /* -------------------- CREATE STOP -------------------- */
 // Add a stop to a route
-export const createStop = async (routeId, name, lat, lng, order) => {
+export const createStop = async (routeId, name, lat, lng, order, busId = null) => {
   // routeId may be null if stop is being attached to a bus instead.
-  // New signature supports optional 6th parameter `busId`.
-  const args = Array.from(arguments);
-  const busId = args.length >= 6 ? args[5] : null;
+  // Explicit `busId` parameter used instead of `arguments` to avoid runtime errors.
   const sql = `
     INSERT INTO stops (route_id, bus_id, name, latitude, longitude, stop_order)
     VALUES (?, ?, ?, ?, ?, ?)

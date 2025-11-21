@@ -1,22 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./StudentPages.css";
 
 export default function StudentSubscriptions() {
+  const API = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+  const navigate = useNavigate();
   const [selectedBus, setSelectedBus] = useState("");
+  const [buses, setBuses] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // 🔵 SAME BUS DATA YOU USED BEFORE — NO CHANGES
-  const buses = [
-    { number: "BUS-1", stops: ["Vijaynagar 1st Stage", "Vijaynagar Bus Stand", "Hinkal", "Metagalli", "KRS Road"], destination: "Mysore Palace" },
-    { number: "BUS-2", stops: ["Bogadi Circle", "Kamakshi Hospital", "Kuvempunagar", "Jayanagar", "Hardinge Circle"], destination: "Mysore Palace" },
-    { number: "BUS-3", stops: ["Hebbal 2nd Stage", "Hebbal Ring Road", "Infosys Road", "Mysore University", "RTO Circle"], destination: "Mysore Palace" },
-    { number: "BUS-4", stops: ["Jayalakshmipuram", "CFTRI", "Yadavagiri", "Nazarbad", "LIC Circle"], destination: "Mysore Palace" },
-    { number: "BUS-5", stops: ["Saraswathipuram", "Kukkrahalli Lake", "Manasagangotri", "DC Office", "KR Circle"], destination: "Mysore Palace" },
-    { number: "BUS-6", stops: ["Nanjangud Road", "Vidyaranyapuram", "Ashokpuram", "Town Hall", "Devaraja Market"], destination: "Mysore Palace" },
-    { number: "BUS-7", stops: ["Hootagalli", "Belawadi", "Ring Road Junction", "Hunsur Road", "JLB Road"], destination: "Mysore Palace" },
-    { number: "BUS-8", stops: ["Srirampura", "Gandinagar", "Bannimantap", "HUDCO Layout", "Mysore Bus Stand"], destination: "Mysore Palace" },
-    { number: "BUS-9", stops: ["KR Nagar Road", "Bogadi Extension", "Madhav Nagar", "Hinkal Bridge", "Suburban Bus Stand"], destination: "Mysore Palace" },
-    { number: "BUS-10", stops: ["Suttur Road", "Varuna", "Alanahalli", "Ring Road East", "Mysore Zoo Road"], destination: "Mysore Palace" }
-  ];
+  useEffect(() => {
+    const fetchBuses = async () => {
+      try {
+        const res = await axios.get(`${API}/api/buses`);
+        setBuses(res.data.buses || []);
+      } catch (err) {
+        console.error('Failed to fetch buses', err);
+      }
+    };
+    fetchBuses();
+  }, []);
+
+  const handleSelect = async () => {
+    const studentId = localStorage.getItem("userId");
+    if (!studentId) return alert("You must be logged in as a student to subscribe to a bus");
+    if (!selectedBus) return alert("Select a bus first");
+
+    setLoading(true);
+    try {
+      await axios.put(`${API}/api/students/${studentId}/assign-bus`, { bus_id: selectedBus });
+      // after successful assign, navigate to student map route
+      navigate('/student/map');
+    } catch (err) {
+      console.error('Assign bus error', err);
+      alert(err.response?.data?.message || 'Failed to assign bus');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onCardClick = (bus) => {
+    setSelectedBus(String(bus.id || bus.number));
+    try { localStorage.setItem('selectedBus', String(bus.id || bus.number)); } catch (e) {}
+    // Navigate to the common student map route for any bus card
+    navigate('/student/map');
+  };
 
   return (
     <div className="page-container">
@@ -28,38 +57,31 @@ export default function StudentSubscriptions() {
         <input type="text" placeholder="Enter phone number" />
       </div>
 
-      
-
       {/* 🔵 Select Bus (NEW UI) */}
       <h3 className="bus-select-title">Select Bus</h3>
 
       <div className="student-bus-list">
         {buses.map((bus) => (
           <div
-            key={bus.number}
-            className={`student-bus-item ${selectedBus === bus.number ? "active" : ""}`}
-            onClick={() => setSelectedBus(bus.number)}
+            key={bus.id || bus.number}
+            className={`student-bus-item ${selectedBus === String(bus.id || bus.number) ? "active" : ""}`}
+            onClick={() => onCardClick(bus)}
           >
             <div className="student-bus-header">
-              <h4>{bus.number}</h4>
-              <span className="student-badge">5 Stops</span>
+              <h4>{bus.name || bus.number || `Bus ${bus.id || ''}`}</h4>
+              <span className="student-badge">{bus.capacity || "-"} Capacity</span>
             </div>
 
-            <ul className="student-stop-list">
-              {bus.stops.map((stop, i) => (
-                <li key={i}>• {stop}</li>
-              ))}
-            </ul>
-
             <p className="student-destination">
-              🏁 Destination: <strong>{bus.destination}</strong>
+              🏁 Bus ID: <strong>{bus.id || bus.number}</strong>
             </p>
           </div>
         ))}
+        {buses.length === 0 && <p>No buses available</p>}
       </div>
 
-      <button className="btn-primary" disabled={!selectedBus}>
-        Select
+      <button className="btn-primary" disabled={!selectedBus || loading} onClick={handleSelect}>
+        {loading ? 'Assigning...' : 'Select'}
       </button>
     </div>
   );

@@ -5,6 +5,7 @@ import {
   updateStudent,
   deleteStudent
 } from "../models/studentModel.js";
+import { updateStudentAssignedBus } from "../models/studentModel.js";
 import { hashPassword } from "../utils/auth.js";
 import { updateStudentLocation } from "../models/studentModel.js";
 
@@ -81,6 +82,21 @@ export const setStudentLocation = async (req, res) => {
     if (!updated) return res.status(404).json({ success: false, message: "Student not found" });
 
     res.json({ success: true, message: "Location updated" });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+};
+
+export const assignBusToStudent = async (req, res) => {
+  try {
+    const studentId = req.params.id;
+    const { bus_id } = req.body;
+    if (!bus_id) return res.status(400).json({ success: false, message: "bus_id required" });
+
+    const ok = await updateStudentAssignedBus(studentId, bus_id);
+    if (!ok) return res.status(404).json({ success: false, message: "Student not found" });
+
+    res.json({ success: true, message: "Assigned bus updated" });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }

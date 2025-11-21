@@ -8,7 +8,9 @@ import {
 
 export const addStop = async (req, res) => {
   try {
-    const id = await createStop(req.body);
+    // Expect body: { route_id?, bus_id?, name, lat, lng, order }
+    const { route_id, bus_id, name, lat, lng, order } = req.body;
+    const id = await createStop(route_id || null, name, lat || null, lng || null, order || 0, bus_id || null);
     res.json({ success: true, id });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -36,7 +38,9 @@ export const fetchStop = async (req, res) => {
 
 export const editStop = async (req, res) => {
   try {
-    const success = await updateStop(req.params.id, req.body);
+    // Expect body: { name, lat, lng, order }
+    const { name, lat, lng, order } = req.body;
+    const success = await updateStop(req.params.id, name, lat, lng, order);
     if (!success) return res.status(404).json({ message: "Stop not found" });
     res.json({ success: true, message: "Updated" });
   } catch (err) {

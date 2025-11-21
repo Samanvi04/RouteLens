@@ -14,6 +14,7 @@ export const runMigrations = async () => {
         grade VARCHAR(50) NOT NULL,
         lat DOUBLE DEFAULT NULL,
         lng DOUBLE DEFAULT NULL,
+        assigned_bus BIGINT DEFAULT NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
     `);
@@ -115,6 +116,7 @@ export const runMigrations = async () => {
 
     await ensureColumn('students', 'lat', 'DOUBLE DEFAULT NULL');
     await ensureColumn('students', 'lng', 'DOUBLE DEFAULT NULL');
+    await ensureColumn('students', 'assigned_bus', 'BIGINT DEFAULT NULL');
     await ensureColumn('drivers', 'lat', 'DOUBLE DEFAULT NULL');
     await ensureColumn('drivers', 'lng', 'DOUBLE DEFAULT NULL');
     await ensureColumn('stops', 'bus_id', 'BIGINT DEFAULT NULL');

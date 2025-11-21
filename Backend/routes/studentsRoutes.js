@@ -8,6 +8,7 @@ import {
 } from "../controllers/studentController.js";
 
 import { setStudentLocation } from "../controllers/studentController.js";
+import { assignBusToStudent } from "../controllers/studentController.js";
 
 const router = express.Router();
 
@@ -27,5 +28,8 @@ router.put("/:id", editStudent);
 router.delete("/:id", removeStudent);
 
 router.put("/:id/location", setStudentLocation);
+
+// Assign a bus to a student
+router.put("/:id/assign-bus", assignBusToStudent);
 
 export default router;
