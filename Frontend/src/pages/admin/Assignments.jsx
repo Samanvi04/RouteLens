@@ -1,5 +1,5 @@
 import React from "react";
-import "./AdminPages.css";
+//port "./AdminPages.css";
 
 export default function Assignments() {
   return (

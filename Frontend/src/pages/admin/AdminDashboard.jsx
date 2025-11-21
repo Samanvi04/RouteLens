@@ -8,37 +8,33 @@ export default function AdminDashboard() {
   return (
     <div className="admin-container">
 
-      {/* 🔵 ADMIN NAVIGATION BAR */}
+      {/* NAVIGATION BAR */}
       <nav className="admin-navbar">
         <h2 className="admin-logo">Admin Dashboard</h2>
+
         <ul>
-          <li onClick={() => navigate("/admin/dashboard")}>Dashboard</li>
-          <li onClick={() => navigate("/admin/drivers")}>Drivers</li>
-          <li onClick={() => navigate("/admin/buses")}>Buses</li>
-          <li onClick={() => navigate("/admin/routes")}>Routes</li>
+          <li onClick={() => navigate("/admin/driversbuses")}>Drivers & Buses</li>
           <li onClick={() => navigate("/admin/assignments")}>Assignments</li>
           <li onClick={() => navigate("/admin/live-map")}>Live Map</li>
           <li onClick={() => navigate("/admin/maintenance")}>Maintenance</li>
-          <li onClick={() => navigate("/admin/profile")}>Profile</li>
         </ul>
       </nav>
 
-      {/* ⭐ MAIN 2-COLUMN SECTION */}
+      {/* MAIN SECTION */}
       <section className="admin-section">
-
-        {/* LEFT SIDE — WELCOME */}
         <div className="admin-left">
           <h1>Welcome, Admin</h1>
           <p>“Control, monitor, and manage your transportation system effortlessly.”</p>
 
-          <button className="btn-admin" onClick={() => navigate("/admin/dashboard")}>
-            Go to Main Panel
+          <button
+            className="btn-admin"
+            onClick={() => navigate("/admin/manage")}
+          >
+            Manage Buses, Drivers & Routes
           </button>
         </div>
-
-        
-
       </section>
+
     </div>
   );
 }

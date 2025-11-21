@@ -12,11 +12,19 @@ export default function StudentDashboard() {
       {/* 🔵 TOP NAVIGATION */}
       <nav className="student-navbar">
         <h2 className="logo">Student Dashboard</h2>
+
         <ul>
           <li onClick={() => navigate("/student/subscriptions")}>Manage Subscriptions</li>
           <li onClick={() => navigate("/student/live-tracking")}>Live Tracking</li>
-          <li onClick={() => navigate("/student/preferences")}>Preferences</li>
           <li onClick={() => navigate("/student/history")}>History</li>
+
+          {/* 🔔 NOTIFICATION BUTTON */}
+          <li 
+            className="notif-icon"
+            onClick={() => navigate("/student/notifications")}
+          >
+            🔔
+          </li>
         </ul>
       </nav>
 

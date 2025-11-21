@@ -963,3 +963,19 @@
 .alert-admin-btn:hover {
   background: #cc0000;
 }
+/* Emergency Icon in Navbar */
+.nav-emergency {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px 12px;
+  background: rgba(255, 0, 0, 0.3);
+  border-radius: 8px;
+  color: #ff4d4d;
+  margin-left: 15px;
+  transition: 0.25s ease;
+}
+
+.nav-emergency:hover {
+  background: rgba(255, 0, 0, 0.55);
+  transform: translateY(-2px);
+}

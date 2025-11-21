@@ -79,3 +79,192 @@
   display: flex;
   justify-content: space-between;
 }
+/* PAGE BASE */
+.page-container {
+  padding: 30px;
+  min-height: 100vh;
+  background: #0d131a;
+  color: #fff;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background: #1a222d;
+  border: 1px solid #3b4654;
+  color: white;
+}
+
+/* 🔵 BUS SELECTION */
+.bus-select-title {
+  margin-top: 20px;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* GRID */
+.student-bus-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 18px;
+  margin-top: 10px;
+}
+
+/* BUS CARD */
+.student-bus-item {
+  padding: 20px;
+  border-radius: 14px;
+  background: #1a222d;
+  transition: 0.3s;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.student-bus-item:hover {
+  border-color: #3ea6ff;
+  transform: translateY(-4px);
+}
+
+.student-bus-item.active {
+  background: #243040;
+  border-color: #3ea6ff;
+  box-shadow: 0 0 10px rgba(62, 166, 255, 0.5);
+}
+
+/* HEADER */
+.student-bus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-bus-header h4 {
+  font-size: 20px;
+  color: #3ea6ff;
+}
+
+.student-badge {
+  background: #3ea6ff;
+  color: black;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* STOP LIST */
+.student-stop-list {
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #cfd6e1;
+  padding-left: 10px;
+}
+
+/* DESTINATION */
+.student-destination {
+  font-size: 14px;
+  background: rgba(62,166,255,0.2);
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(62,166,255,0.4);
+  color: #c8eaff;
+}
+
+/* BUTTON */
+.btn-primary {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px;
+  background: #3ea6ff;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  background: #777;
+  cursor: not-allowed;
+}
+/* PAGE WRAPPER */
+.page-container {
+  padding: 30px;
+  background: #0d131a;
+  min-height: 100vh;
+  color: white;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* HISTORY LIST */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.history-item {
+  background: #1a222d;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: 0.3s ease;
+}
+
+.history-item:hover {
+  border-color: #3ea6ff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px rgba(62, 166, 255, 0.2);
+}
+
+.history-date {
+  font-size: 14px;
+  color: #9ea7b3;
+  margin-bottom: 5px;
+}
+
+.history-bus {
+  font-size: 18px;
+  color: #3ea6ff;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.history-msg {
+  font-size: 15px;
+  color: #dde7f1;
+}
+/* Notification Bell */
+.notif-icon {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.notif-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+}

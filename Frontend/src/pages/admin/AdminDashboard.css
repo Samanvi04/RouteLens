@@ -19,7 +19,7 @@
   background: url("/src/pages/images/unnamed.jpg")
               no-repeat center center / cover;
 
-  filter: blur(2px);        /* 🔵 Background blur */
+  filter: blur(0px);      /* 🔵 Background blur */
   transform: scale(1.1);     /* avoids blurred edges */
   z-index: -2;
 }
