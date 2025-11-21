@@ -1,0 +1,42 @@
+.db-page {
+  padding: 100px 40px;
+}
+
+.db-title {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.db-bus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.db-bus-item {
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(0, 122, 255, 0.1);
+  border: 1px solid #0080ff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.db-bus-item:hover {
+  background: rgba(0, 122, 255, 0.3);
+}
+
+.db-bus-item.active {
+  background: #0080ff;
+  color: white;
+}
+
+.db-btn-primary {
+  margin-top: 25px;
+  padding: 12px 20px;
+  background: #0080ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

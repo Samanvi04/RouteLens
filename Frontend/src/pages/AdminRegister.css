@@ -1,0 +1,178 @@
+.reg-container {
+  height: 100vh;
+  width: 100%;
+  background: url("../images/bus1.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.reg-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.reg-box {
+  width: 380px;
+  background: rgba(255,255,255,0.08);
+  padding: 35px;
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  z-index: 2;
+}
+
+.reg-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reg-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+}
+
+.reg-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #ffd654;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+/* ===================== GLOBAL ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===================== BACKGROUND ===================== */
+
+.admin-reg-bg {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Overlay */
+.admin-reg-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+/* ===================== FLOATING EMOJIS ===================== */
+
+.admin-emoji {
+  position: absolute;
+  font-size: 46px;
+  z-index: 2;
+  opacity: 0.9;
+  animation: float 4s ease-in-out infinite;
+}
+
+.ae1 { top: 25px; left: 30px; animation-delay: 0s; }
+.ae2 { top: 25px; right: 30px; animation-delay: 1s; }
+.ae3 { bottom: 30px; left: 30px; animation-delay: 2s; }
+.ae4 { bottom: 30px; right: 30px; animation-delay: 3s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===================== FORM BOX ===================== */
+
+.admin-reg-box {
+  width: 400px;
+  padding: 35px;
+
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  z-index: 5;
+
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-reg-box h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+/* ===================== INPUTS ===================== */
+
+.admin-reg-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+}
+
+.admin-reg-box input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.admin-reg-box input:focus {
+  border-color: #00d7ff;
+}
+
+/* ===================== BUTTON ===================== */
+
+.admin-reg-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+
+  background: #00d7ff;
+  color: #002125;
+
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.admin-reg-box button:hover {
+  background: #00c4e6;
+  transform: translateY(-2px);
+}

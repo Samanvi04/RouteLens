@@ -1,18 +1,30 @@
-import React from "react";
-import "./DriverDashboard.css";
+import React, { useState } from "react";
+import "./SelectVehicle.css";
 
 export default function SelectVehicle() {
-  return (
-    <div className="page-container">
-      <h2>Select Vehicle (Optional)</h2>
+  const [vehicle, setVehicle] = useState("");
 
-      <div className="bus-list">
-        <div className="bus-item">Vehicle 1</div>
-        <div className="bus-item">Vehicle 2</div>
-        <div className="bus-item">Vehicle 3</div>
+  const vehicles = ["Van-01", "Van-02", "SUV-03"];
+
+  return (
+    <div className="dv-page">
+      <h1 className="dv-title">🚐 Select Vehicle</h1>
+
+      <div className="dv-list">
+        {vehicles.map((v) => (
+          <div
+            key={v}
+            className={`dv-item ${vehicle === v ? "active" : ""}`}
+            onClick={() => setVehicle(v)}
+          >
+            {v}
+          </div>
+        ))}
       </div>
 
-      <button className="btn-primary">Confirm Vehicle</button>
+      <button className="dv-btn" disabled={!vehicle}>
+        Confirm Vehicle ✔
+      </button>
     </div>
   );
 }

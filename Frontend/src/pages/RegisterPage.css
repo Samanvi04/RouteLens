@@ -166,3 +166,49 @@
   position: relative;
   z-index: 2;
 }
+/* =======================
+   CORNER EMOJIS
+======================= */
+
+.corner-emoji {
+  position: absolute;
+  font-size: 48px;
+  opacity: 0.7;
+  z-index: 3;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Top Left */
+.corner-emoji.tl {
+  top: 20px;
+  left: 20px;
+  animation-delay: 0s;
+}
+
+/* Top Right */
+.corner-emoji.tr {
+  top: 20px;
+  right: 20px;
+  animation-delay: 1s;
+}
+
+/* Bottom Left */
+.corner-emoji.bl {
+  bottom: 20px;
+  left: 20px;
+  animation-delay: 0.5s;
+}
+
+/* Bottom Right */
+.corner-emoji.br {
+  bottom: 20px;
+  right: 20px;
+  animation-delay: 1.5s;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); opacity: 0.75; }
+  50% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(0px); opacity: 0.75; }
+}

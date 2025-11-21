@@ -1,22 +1,22 @@
 import React from "react";
-import "./DriverDashboard.css";
+import "./ActiveJourney.css";
 
 export default function ActiveJourney() {
   return (
-    <div className="page-container">
-      <h2>Active Journey</h2>
+    <div className="aj-page">
+      <h1 className="aj-title">🛰 Live Journey</h1>
 
-      <div className="map-box">
-        <div className="map-placeholder">Live Map Placeholder</div>
+      <div className="aj-map">
+        <span className="aj-placeholder">📍 Map Loading...</span>
       </div>
 
-      <div className="eta-box">
-        <span>Next Stop: Block A</span>
-        <span>ETA: 5 mins</span>
+      <div className="aj-info">
+        <p>Next Stop: <b>Block A</b></p>
+        <p>ETA: <b>5 minutes</b></p>
       </div>
 
-      <button className="btn-secondary">Stop Check-in</button>
-      <button className="btn-danger end-journey">End Journey</button>
+      <button className="aj-stop">Arrived at Stop ✔</button>
+      <button className="aj-end">End Journey ❌</button>
     </div>
   );
 }

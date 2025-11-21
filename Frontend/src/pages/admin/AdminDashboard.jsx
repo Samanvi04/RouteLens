@@ -3,43 +3,42 @@ import { useNavigate } from "react-router-dom";
 import "./AdminDashboard.css";
 
 export default function AdminDashboard() {
-
   const navigate = useNavigate();
 
   return (
     <div className="admin-container">
 
-      {/* 🔵 TOP TOOLBAR */}
-      <nav className="top-toolbar">
-        <h2 className="admin-logo">College Transport Admin</h2>
-
-        <ul className="toolbar-menu">
-          <li onClick={() => navigate("/admin/dashboard-home")}>Dashboard</li>
-          <li onClick={() => navigate("/admin/drivers-buses")}>Drivers & Buses</li>
-          <li onClick={() => navigate("/admin/routes-stops")}>Routes & Stops</li>
+      {/* 🔵 ADMIN NAVIGATION BAR */}
+      <nav className="admin-navbar">
+        <h2 className="admin-logo">Admin Dashboard</h2>
+        <ul>
+          <li onClick={() => navigate("/admin/dashboard")}>Dashboard</li>
+          <li onClick={() => navigate("/admin/drivers")}>Drivers</li>
+          <li onClick={() => navigate("/admin/buses")}>Buses</li>
+          <li onClick={() => navigate("/admin/routes")}>Routes</li>
           <li onClick={() => navigate("/admin/assignments")}>Assignments</li>
           <li onClick={() => navigate("/admin/live-map")}>Live Map</li>
           <li onClick={() => navigate("/admin/maintenance")}>Maintenance</li>
-          <li onClick={() => navigate("/admin/logs")}>Logs</li>
-          <li onClick={() => navigate("/admin/profile")}>Admin Profile</li>
+          <li onClick={() => navigate("/admin/profile")}>Profile</li>
         </ul>
-
-        <div className="admin-profile">Admin</div>
       </nav>
 
-      {/* ⭐ WELCOME HERO */}
-      <section className="admin-welcome">
-        <h1>Welcome, Administrator</h1>
-        <p>Monitor buses, drivers, routes, tracking, and analytics.</p>
+      {/* ⭐ MAIN 2-COLUMN SECTION */}
+      <section className="admin-section">
 
-        <button 
-          className="btn-start"
-          onClick={() => navigate("/admin/dashboard-home")}
-        >
-          Go to Dashboard
-        </button>
+        {/* LEFT SIDE — WELCOME */}
+        <div className="admin-left">
+          <h1>Welcome, Admin</h1>
+          <p>“Control, monitor, and manage your transportation system effortlessly.”</p>
+
+          <button className="btn-admin" onClick={() => navigate("/admin/dashboard")}>
+            Go to Main Panel
+          </button>
+        </div>
+
+        
+
       </section>
-
     </div>
   );
 }

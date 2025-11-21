@@ -39,10 +39,10 @@ export default function RegisterPage() {
     console.log(`📦 Sending Registration Data:, form`);
 
     // FIXED: Correct endpoint + template string
-   const baseUrl = `${API_BASE_URL}`;
+   //const baseUrl = `${API_BASE_URL}`;
 
-   //const url = "http://localhost:5000/api/admins/register";
-    console.log(`🔗 Final POST URL: ${url}/api/admins/register`);
+   const url = "http://localhost:5000/api/admins/register";
+    console.log(`🔗 Final POST URL: ${url}`);
 
     try {
       // FIXED: Proper axios URL formatting

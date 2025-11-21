@@ -2,7 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import RoleSelect from "./pages/RoleSelect";
 import Login from "./pages/Login";
-import Register from "./pages/RegisterPage";
+import AdminRegister from "./pages/AdminRegister.jsx";
+import DriverRegister from "./pages/DriverRegister.jsx";
+import StudentRegister from "./pages/StudentRegister.jsx";
+
 
 import AdminDashboard from "/src/pages/admin/AdminDashboard.jsx";
 import DriverDashboard from "/src/pages/driver/DriverDashboard.jsx";
@@ -39,7 +42,7 @@ export default function App() {
 
         {/* AUTH */}
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        
 
         {/* DASHBOARDS */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
@@ -66,6 +69,10 @@ export default function App() {
         <Route path="/admin/logs" element={<Logs />} />
         <Route path="/admin/journey-logs" element={<JourneyLogs />} />
         <Route path="/admin/profile" element={<AdminProfile />} />
+        <Route path="/register/admin" element={<AdminRegister />} />
+        <Route path="/register/driver" element={<DriverRegister />} />
+        <Route path="/register/student" element={<StudentRegister />} />
+
 
       </Routes>
     </Router>

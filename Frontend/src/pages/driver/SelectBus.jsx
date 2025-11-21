@@ -1,18 +1,30 @@
-import React from "react";
-import "./DriverDashboard.css";
+import React, { useState } from "react";
+import "./SelectBus.css";
 
 export default function SelectBus() {
-  return (
-    <div className="page-container">
-      <h2>Select Bus</h2>
+  const [selectedBus, setSelectedBus] = useState("");
 
-      <div className="bus-list">
-        <div className="bus-item">MH-01-AB-1234</div>
-        <div className="bus-item">MH-01-XY-9988</div>
-        <div className="bus-item">MH-04-BZ-6721</div>
+  const buses = ["MH-01-AB-1234", "MH-01-XY-9988", "MH-04-BZ-6721"];
+
+  return (
+    <div className="db-page">
+      <h1 className="db-title">🚌 Select Bus</h1>
+
+      <div className="db-bus-list">
+        {buses.map((bus) => (
+          <div
+            key={bus}
+            className={`db-bus-item ${selectedBus === bus ? "active" : ""}`}
+            onClick={() => setSelectedBus(bus)}
+          >
+            {bus}
+          </div>
+        ))}
       </div>
 
-      <button className="btn-primary">Confirm Bus</button>
+      <button className="db-btn-primary" disabled={!selectedBus}>
+        Confirm Bus ✔
+      </button>
     </div>
   );
 }

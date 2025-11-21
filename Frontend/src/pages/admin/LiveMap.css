@@ -1,0 +1,4 @@
+
+.map-area { display:flex; gap:20px; align-items:flex-start; }
+.map-placeholder { flex:1; height:420px; border-radius:12px; background: rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; color:#ddd; }
+.mini-stats { width:320px; background: rgba(255,255,255,0.06); padding:12px; border-radius:8px; }
