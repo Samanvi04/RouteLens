@@ -34,3 +34,96 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.dp-container {
+  background: #0d131a;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dp-title {
+  font-size: 32px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.dp-card {
+  background: #1a222d;
+  width: 420px;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.dp-photo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #3ea6ff;
+}
+
+.dp-info {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.dp-info label {
+  font-size: 14px;
+  color: #bbbbbb;
+}
+
+.dp-info input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 16px 0;
+  background: #10161d;
+  border: 1px solid #3a3f47;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.dp-info input:disabled {
+  opacity: 0.7;
+}
+
+/* Buttons */
+.dp-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dp-edit, .dp-save {
+  background-color: #3ea6ff;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.dp-save {
+  background-color: #32cd32;
+}
+
+.dp-logout {
+  background-color: #ff4444;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.dp-logout:hover {
+  background-color: #ff5c5c;
+}

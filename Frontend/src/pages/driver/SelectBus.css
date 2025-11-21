@@ -40,3 +40,296 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.db-page {
+  background: #0d131a;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.db-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Bus List Grid */
+.db-bus-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Bus Card */
+.db-bus-item {
+  background: #1a222d;
+  padding: 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 0.3s ease;
+}
+
+.db-bus-item:hover {
+  border-color: #3ea6ff;
+  transform: translateY(-4px);
+}
+
+.db-bus-item h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #3ea6ff;
+}
+
+.db-route {
+  color: #cccccc;
+  font-size: 14px;
+}
+
+/* Active Card */
+.db-bus-item.active {
+  border-color: #3ea6ff;
+  background: #243040;
+  box-shadow: 0 0 10px rgba(62, 166, 255, 0.4);
+}
+
+/* Confirm Button */
+.db-btn-primary {
+  margin-top: 25px;
+  background: #3ea6ff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.db-btn-primary:disabled {
+  background: #777;
+  cursor: not-allowed;
+}
+
+.db-btn-primary:hover:not(:disabled) {
+  background: #66c0ff;
+}
+.db-page {
+  background: #0d131a;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.db-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.db-bus-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Bus Card */
+.db-bus-item {
+  background: #1a222d;
+  padding: 20px;
+  border-radius: 16px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 0.3s ease;
+}
+
+.db-bus-item:hover {
+  border-color: #3ea6ff;
+  transform: translateY(-4px);
+}
+
+.db-bus-item.active {
+  border-color: #3ea6ff;
+  box-shadow: 0 0 12px rgba(62, 166, 255, 0.4);
+  background: #243040;
+}
+
+.db-bus-item h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #3ea6ff;
+}
+
+.db-route-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+/* Stops List */
+.db-stop-list {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #dddddd;
+}
+
+.db-stop-list li {
+  margin-bottom: 4px;
+}
+
+.db-destination {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #c5e1ff;
+}
+
+/* Confirm Button */
+.db-btn-primary {
+  margin-top: 25px;
+  background: #3ea6ff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.db-btn-primary:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.db-btn-primary:hover:not(:disabled) {
+  background: #66c0ff;
+}
+.db-page {
+  background: #0b1119;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.db-title {
+  font-size: 36px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.db-sub {
+  color: #9ba5b4;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+/* GRID */
+.db-bus-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 22px;
+}
+
+/* BUS CARD */
+.db-bus-item {
+  background: rgba(26, 34, 45, 0.6);
+  padding: 22px;
+  border-radius: 18px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  transition: 0.3s;
+}
+
+.db-bus-item:hover {
+  border-color: #3ea6ff;
+  transform: translateY(-6px);
+  box-shadow: 0 4px 15px rgba(62, 166, 255, 0.35);
+}
+
+.db-bus-item.active {
+  border-color: #3ea6ff;
+  background: rgba(40, 55, 78, 0.8);
+  box-shadow: 0 0 18px rgba(62, 166, 255, 0.6);
+}
+
+.bus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bus-header h3 {
+  font-size: 24px;
+  color: #3ea6ff;
+  margin-bottom: 10px;
+}
+
+.route-badge {
+  background: #3ea6ff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+/* STOPS */
+.db-stop-list {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #d2d9e5;
+}
+
+.db-stop-list li {
+  margin-bottom: 4px;
+}
+
+/* FINAL DESTINATION */
+.db-final {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(62,166,255,0.15);
+  border: 1px solid rgba(62,166,255,0.4);
+  color: #c9eaff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* CONFIRM BUTTON */
+.db-btn-primary {
+  margin-top: 28px;
+  background: #3ea6ff;
+  padding: 14px 32px;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.db-btn-primary:disabled {
+  background: #6c7480;
+  cursor: not-allowed;
+}
+
+.db-btn-primary:hover:not(:disabled) {
+  background: #66c0ff;
+}

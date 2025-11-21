@@ -1,444 +1,125 @@
-/* ================================
-   BACKGROUND IMAGE (FULL PAGE)
-   ================================ */
+/* ==========================================================
+   FULLSCREEN BLURRED BACKGROUND
+========================================================== */
 
 .admin-container {
-  background-image: url("/mnt/data/43f41871-ce91-4907-9824-30e1ea36c827.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
+  position: relative;
   min-height: 100vh;
+  overflow: hidden;
   color: white;
   font-family: "Poppins", sans-serif;
 }
 
-/* Overlay for readability */
+/* Blurred Background Image */
 .admin-container::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+
+  background: url("/src/pages/images/unnamed.jpg")
+              no-repeat center center / cover;
+
+  filter: blur(0px);      /* 🔵 Background blur */
+  transform: scale(1.1);     /* avoids blurred edges */
+  z-index: -2;
+}
+
+/* Dark Overlay */
+.admin-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
   z-index: -1;
 }
 
-/* Makes all content appear above overlay */
-.admin-content, .top-toolbar {
-  position: relative;
-  z-index: 2;
-}
-
-/* ================================
-   TOP TOOLBAR
-   ================================ */
-.top-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 45px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-.admin-logo {
-  font-size: 24px;
-  font-weight: 700;
-  background: linear-gradient(90deg, #00eaff, #00ff95);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.toolbar-menu {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-}
-
-.toolbar-menu li {
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.2s;
-}
-
-.toolbar-menu li:hover {
-  color: #a6d8ff;
-}
-
-.admin-profile {
-  padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-}
-
-/* ================================
-   MAIN CONTENT
-   ================================ */
-
-.admin-content {
-  padding-top: 120px;
-  padding-left: 45px;
-  padding-right: 45px;
-}
-
-/* Section spacing */
-.admin-section {
-  margin-bottom: 60px;
-}
-
-.title {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.subtitle {
-  opacity: 0.9;
-  margin-bottom: 25px;
-}
-
-/* ================================
-   KPI CARDS
-   ================================ */
-
-.kpis {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  margin-bottom: 40px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.07);
-  padding: 22px;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0,255,255,0.25);
-}
-
-.card .icon {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #00eaff;
-}
-
-.card h3 {
-  font-size: 16px;
-  opacity: 0.9;
-}
-
-.card p {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-/* ================================
-   ANALYTICS CARDS
-   ================================ */
-
-.analytics-card {
-  background: rgba(255, 255, 255, 0.07);
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  margin-bottom: 25px;
-}
-
-.section-title {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.chart-placeholder,
-.map-placeholder {
-  background: rgba(0,0,0,0.35);
-  border-radius: 10px;
-  height: 280px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px dashed rgba(255,255,255,0.3);
-  opacity: 0.8;
-}
-/* ----------------------------
-   ADMIN BACKGROUND IMAGE
----------------------------- */
-.admin-container {
-  font-family: Arial, sans-serif;
-
-  /* your downloaded image - NOT A URL */
-  background-image: url("/mnt/data/43f41871-ce91-4907-9824-30e1ea36c827.png");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  min-height: 100vh;
-  position: relative;
-  color: white;
-}
-
-.admin-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: -1;
-}
-
-/* Toolbar */
-.top-toolbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 65px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 35px;
-  z-index: 100;
-}
-
-.toolbar-menu {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.toolbar-menu li {
-  cursor: pointer;
-  color: white;
-  transition: 0.2s;
-}
-
-.toolbar-menu li:hover {
-  color: #d3eaff;
-}
-
-.admin-welcome {
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.btn-start {
-  padding: 12px 30px;
-  background: #00a8ff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  color: white;
-  margin-top: 20px;
-}
-/* ========================================
-   FULL PAGE BACKGROUND (Downloaded Image)
-======================================== */
-
-.admin-container {
-  font-family: "Poppins", sans-serif;
-
-  /* 🔵 Using your downloaded file (NOT a URL) */
-  background-image: url("/src/pages/images/unnamed.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  min-height: 100vh;
-  color: white;
-  position: relative;
-}
-
-/* Dark overlay for readability */
-.admin-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: -1;
-}
-/* ============================================================
-   FULL BACKGROUND + OVERLAY
-============================================================ */
-.admin-container {
-  height: 100vh;
-  width: 100%;
-  background-image: url("/src/pages/images/unnamed.jpg"); /* Your local image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  color: white;
-}
-
-.admin-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55); /* Darken background */
-  z-index: 1;
-}
-
-/* Bring navbar + content above overlay */
-.admin-navbar,
-.admin-section {
-  position: relative;
-  z-index: 2;
-}
-
-/* ============================================================
+/* ==========================================================
    NAVIGATION BAR
-============================================================ */
+========================================================== */
+
 .admin-navbar {
+  width: 100%;
+  padding: 18px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+
   position: fixed;
   top: 0;
   left: 0;
-  height: 65px;
-  width: 100%;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(6px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 35px;
   z-index: 10;
 }
 
 .admin-logo {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
 }
 
 .admin-navbar ul {
-  display: flex;
   list-style: none;
-  gap: 25px;
+  display: flex;
+  gap: 28px;
 }
 
 .admin-navbar li {
   cursor: pointer;
-  font-size: 15px;
-  color: #e8e8e8;
-  transition: 0.2s;
+  font-size: 16px;
+  transition: 0.25s;
 }
 
 .admin-navbar li:hover {
   color: #bfeeff;
 }
 
-/* ============================================================
-   TWO COLUMN MAIN SECTION
-============================================================ */
+/* ==========================================================
+   MAIN CENTER SECTION
+========================================================== */
+
 .admin-section {
+  height: 90vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  padding: 120px 60px 50px;
+  text-align: center;
+  padding: 40px;
 }
 
-/* LEFT SIDE CONTENT */
+/* Left Content (Centered Welcome) */
 .admin-left {
-  max-width: 40%;
-  text-align: left;
+  max-width: 700px;
 }
 
 .admin-left h1 {
   font-size: 50px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .admin-left p {
-  margin-top: 10px;
   font-size: 20px;
-  line-height: 1.5;
   opacity: 0.9;
+  margin-bottom: 30px;
 }
 
-/* CTA BUTTON */
+/* ==========================================================
+   BUTTON
+========================================================== */
+
 .btn-admin {
-  margin-top: 25px;
-  background: #00c4ff;
-  padding: 14px 30px;
+  padding: 12px 32px;
+  background: #009dff;
+  border: none;
   border-radius: 8px;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  font-weight: 600;
-  color: #00323e;
-  transition: 0.25s ease;
-}
-
-.btn-admin:hover {
-  background: #009ac7;
-  transform: translateY(-2px);
-}
-
-/* ============================================================
-   RIGHT SIDE GLASS INFO CARD
-============================================================ */
-.admin-right {
-  max-width: 35%;
-  background: rgba(255,255,255,0.13);
-  border-radius: 14px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.25);
   color: white;
-}
-
-.admin-right h2 {
-  margin-bottom: 40px;
-  font-size: 26px;
-}
-
-.admin-right p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-.admin-center {
-  width: 100%;
-  text-align: center;      /* center text */
-}
-
-.admin-center h1 {
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.admin-center p {
-  margin-top: 12px;
-  font-size: 20px;
-  opacity: 0.9;
-}
-
-/* Button */
-.btn-admin {
-  background: #00c4ff;
-  padding: 14px 30px;
-  border-radius: 10px;
-  border: none;
   font-size: 18px;
   cursor: pointer;
-  margin-top: 25px;
-  color: #00323e;
-  font-weight: 600;
+  transition: 0.25s;
 }
 
 .btn-admin:hover {
-  background: #009ac7;
+  background: #007fcc;
   transform: translateY(-2px);
 }
