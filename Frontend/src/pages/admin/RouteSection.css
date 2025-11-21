@@ -1,0 +1,32 @@
+/* Similar styling for consistency */
+.route-section .form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.route-section input {
+  flex: 1 1 120px;
+  padding: 5px;
+}
+
+.route-section button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.route-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.route-section th, .route-section td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+}
+
+.route-section th {
+  background-color: #f0f0f0;
+}

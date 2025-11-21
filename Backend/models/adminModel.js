@@ -14,3 +14,4 @@ export const getAdminByEmail = async (email) => {
   const rows = await dbQuery("SELECT * FROM admins WHERE email = ?", [email]);
   return rows[0] || null;
 };
+

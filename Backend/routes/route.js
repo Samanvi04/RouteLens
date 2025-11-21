@@ -7,15 +7,36 @@ import {
   updateRoute,
   deleteRoute
 } from "../models/routeModel.js";
+import { bulkAddStops } from "../models/stopModel.js";
 
 const router = express.Router();
 
+// debug: indicate router file was loaded
+console.log("[routes/route] router module loaded");
+
 /* CREATE ROUTE (Admin) */
 router.post("/", async (req, res) => {
-  const { name, description, created_by } = req.body;
+  // Accept optional `stops` array in request body. Create route first,
+  // then bulk-add stops referencing the new route id.
+  const { name, description, created_by, stops } = req.body;
 
   try {
+    console.log('[route] create request received:', { name, description, created_by, stopsLength: Array.isArray(stops) ? stops.length : 0 });
+    if (stops && Array.isArray(stops)) console.log('[route] stops sample:', stops.slice(0,5));
+
     const id = await createRoute(name, description, created_by);
+
+    if (stops && Array.isArray(stops) && stops.length > 0) {
+      const normalized = stops.map((s, idx) => ({
+        name: s.name || null,
+        lat: s.lat === undefined || s.lat === null ? null : parseFloat(s.lat),
+        lng: s.lng === undefined || s.lng === null ? null : parseFloat(s.lng),
+        order: s.order || idx + 1
+      }));
+
+      await bulkAddStops(id, normalized);
+    }
+
     res.json({ success: true, id });
   } catch (err) {
     res.status(500).json({ error: err.message });

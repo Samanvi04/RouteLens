@@ -14,6 +14,9 @@ import StartJourney from "/src/pages/driver/StartJourney";
 import DriverProfile from "/src/pages/driver/DriverProfile";
 import StudentSubscriptions from "/src/pages/student/StudentSubscription";
 import StudentHistory from "/src/pages/student/StudentHistory";
+
+
+
 import AdminCrowd from "./pages/Admin/AdminCrowd";
 import ChatBot from "./pages/Student/ChatBot"; 
 
@@ -21,6 +24,7 @@ import RatingPage from "./pages/Student/RatingPage";
 import Assignments from "/src/pages/admin/Assignments";
 import LiveMap from "/src/pages/admin/LiveMap";
 import Maintenance from "/src/pages/admin/Maintenance";
+
 
 export default function App() {
   return (
@@ -61,6 +65,8 @@ export default function App() {
 <Route path="/admin/crowd" element={<AdminCrowd />} />
  <Route path="/student/chatbot" element={<ChatBot />} />
  <Route path="/student/rating" element={<RatingPage />} />
+<Route path="/admin/manage" element={<AdminManage />} />
+
 
       </Routes>
     </Router>

@@ -1,0 +1,42 @@
+.section {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+  margin-bottom: 10px;
+}
+
+.section .form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.section input {
+  padding: 5px;
+  flex: 1 1 120px;
+}
+
+.section button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.section th, .section td {
+  padding: 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.section th {
+  background-color: #f0f0f0;
+}

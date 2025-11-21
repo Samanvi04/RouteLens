@@ -2,12 +2,14 @@ import { dbQuery } from "../utils/dbQuery.js";
 
 /* -------------------- CREATE STOP -------------------- */
 // Add a stop to a route
-export const createStop = async (routeId, name, lat, lng, order) => {
+export const createStop = async (routeId, name, lat, lng, order, busId = null) => {
+  // routeId may be null if stop is being attached to a bus instead.
+  // Explicit `busId` parameter used instead of `arguments` to avoid runtime errors.
   const sql = `
-    INSERT INTO stops (route_id, name, latitude, longitude, stop_order)
-    VALUES (?, ?, ?, ?, ?)
+    INSERT INTO stops (route_id, bus_id, name, latitude, longitude, stop_order)
+    VALUES (?, ?, ?, ?, ?, ?)
   `;
-  const result = await dbQuery(sql, [routeId, name, lat, lng, order]);
+  const result = await dbQuery(sql, [routeId, busId, name, lat, lng, order]);
   return result.insertId;
 };
 
@@ -64,6 +66,16 @@ export const bulkAddStops = async (routeId, stopsArray) => {
   // stopsArray = [ {name, lat, lng, order}, ... ]
   for (const stop of stopsArray) {
     await createStop(routeId, stop.name, stop.lat, stop.lng, stop.order);
+  }
+  return true;
+};
+
+/* -------------------- BULK ADD STOPS FOR A BUS -------------------- */
+export const bulkAddStopsForBus = async (busId, stopsArray) => {
+  // stopsArray = [ {name, lat, lng, order}, ... ]
+  for (const stop of stopsArray) {
+    // Pass null for routeId and include busId as 6th parameter
+    await createStop(null, stop.name, stop.lat, stop.lng, stop.order, busId);
   }
   return true;
 };

@@ -16,12 +16,19 @@ export default function AdminRegister() {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const register = async () => {
+    const base = API || "http://localhost:5000";
+    const url = `${base}/api/admins/register`;
     try {
-      await axios.post(`${API}/admins/register`, form);
-      alert("Admin Registered ✔️");
+      const res = await axios.post(url, form);
+      console.log("Register response:", res.data);
+      if (res.data?.success) {
+        alert("Admin Registered ✔️");
+      } else {
+        alert(res.data?.error || "Registration failed");
+      }
     } catch (err) {
       alert("Error registering admin");
-      console.error(err);
+      console.error("Registration error:", err?.response || err.message || err);
     }
   };
 
