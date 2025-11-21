@@ -68,6 +68,33 @@ export const runMigrations = async () => {
     `);
     console.log("✔ Assignments table ready");
 
+    // -------------------- ROUTES TABLE --------------------
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS routes (
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT,
+        created_by BIGINT DEFAULT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    console.log("✔ Routes table ready");
+
+    // -------------------- STOPS TABLE --------------------
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS stops (
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        route_id BIGINT NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        latitude DOUBLE,
+        longitude DOUBLE,
+        stop_order INT DEFAULT 0,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (route_id) REFERENCES routes(id) ON DELETE CASCADE
+      )
+    `);
+    console.log("✔ Stops table ready");
+
     console.log("All migrations completed successfully!");
   } catch (err) {
     console.error("Migration Error:", err);

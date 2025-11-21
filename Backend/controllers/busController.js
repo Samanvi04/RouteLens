@@ -11,10 +11,10 @@ export const fetchBuses = async (req, res) => {
 
 export const addBus = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, plate, capacity } = req.body;
     if (!name) return res.status(400).json({ success: false, message: "Bus name required" });
 
-    const id = await createBus(name);
+    const id = await createBus(name, plate || null, capacity || null);
     res.json({ success: true, busId: id });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });

@@ -10,6 +10,9 @@ import {
 
 const router = express.Router();
 
+// debug: indicate router file was loaded
+console.log("[routes/route] router module loaded");
+
 /* CREATE ROUTE (Admin) */
 router.post("/", async (req, res) => {
   const { name, description, created_by } = req.body;

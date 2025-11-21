@@ -1,0 +1,199 @@
+.admin-manage {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #131313ff;
+}
+
+.admin-manage h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sections-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+/* Container for entire admin management page */
+.admin-manage {
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+  background-color: #1c1c1cff; /* Dark background */
+  min-height: 100vh;
+  color: #0d0c0cff;
+}
+
+/* Page Heading */
+.admin-manage h1 {
+  text-align: center;
+  font-size: 10px;
+  margin-bottom: 40px;
+  color: #00aaff;
+}
+
+/* Container for all sections */
+.sections-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+/* Each section box */
+.sections-container > div {
+  flex: 1;
+  min-width: 250px;
+  background-color: #120c0cff;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  padding: 0px;
+  transition: 0.3s all;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Section hover effect */
+.sections-container > div:hover {
+  border-color: #181818ff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+/* Section heading inside each box */
+.sections-container > div h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #00aaff;
+}
+
+/* Optional: buttons inside sections */
+.sections-container > div button {
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 10px;
+  margin-top: 10px;
+  transition: 0.25s;
+}
+
+.sections-container > div button:hover {
+  background-color: #007fcc;
+  transform: translateY(-2px);
+}
+.admin-manage {
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.admin-manage h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #00aaff;
+  text-shadow: 0 0 5px #00aaff;
+}
+
+.sections-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Section Cards */
+.sections-container > div {
+  flex: 1 1 30%;
+  background-color: #222;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 280px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  transition: all 0.3s ease;
+}
+
+.sections-container > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+}
+
+/* Section Heading */
+.sections-container > div h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #00aaff;
+  text-align: center;
+}
+
+/* Form Inputs */
+.sections-container input {
+  width: calc(50% - 10px);
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Add Buttons */
+.sections-container button {
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px 0;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+.sections-container button:hover {
+  background-color: #007fcc;
+  transform: translateY(-2px);
+}
+
+/* Tables */
+.sections-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.sections-container th,
+.sections-container td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+}
+
+.sections-container th {
+  background-color: #111;
+  color: #00aaff;
+}
+
+.sections-container tr:hover {
+  background-color: #333;
+}
+
+/* Scrollable Table for overflow */
+.sections-container table {
+  max-height: 250px;
+  overflow-y: auto;
+  display: block;
+}
+
+.sections-container table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sections-container table::-webkit-scrollbar-thumb {
+  background-color: #00aaff;
+  border-radius: 4px;
+}

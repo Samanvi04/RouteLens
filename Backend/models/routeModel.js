@@ -13,11 +13,11 @@ export const createRoute = async (name, description, createdBy) => {
 
 /* -------------------- GET ALL ROUTES -------------------- */
 export const getAllRoutes = async () => {
+  // Return routes without joining to users table (users table not present)
   return await dbQuery(`
-    SELECT r.*, u.name AS created_by_name
-    FROM routes r
-    LEFT JOIN users u ON r.created_by = u.id
-    ORDER BY r.id DESC
+    SELECT id, name, description, created_by, created_at
+    FROM routes
+    ORDER BY id DESC
   `);
 };
 

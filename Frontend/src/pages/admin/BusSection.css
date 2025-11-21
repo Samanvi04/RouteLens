@@ -1,0 +1,31 @@
+/* Same styles as DriverSection, can reuse */
+.bus-section .form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.bus-section input {
+  flex: 1 1 150px;
+  padding: 5px;
+}
+
+.bus-section button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.bus-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bus-section th, .bus-section td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+}
+
+.bus-section th {
+  background-color: #f0f0f0;
+}
