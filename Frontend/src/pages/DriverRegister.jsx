@@ -1,22 +1,51 @@
 import React, { useState } from "react";
+import axios from "axios";
 import bgImage from "/src/pages/images/bus1.jpg"; // your local image
 import "./DriverRegister.css";
 
 export default function DriverRegister() {
-  const API = import.meta.env.VITE_API_BASE_URL;
+  const API = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
   const [form, setForm] = useState({
     name: "",
-    license: "",
-    phone: "",
+    email: "",
+    license_no: "",
+    vehicle_pref: "",
     password: ""
   });
 
-  const change = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const change = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const register = async () => {
-    alert("Driver Registered (Backend API not added yet)");
+    if (!form.name || !form.email || !form.license_no || !form.password) {
+      alert("Please fill name, email, license and password");
+      return;
+    }
+
+    const url = `${API}/api/drivers/register`;
+    console.log("📡 Driver Register API:", url);
+    console.log("📦 Payload:", form);
+
+    try {
+      const res = await axios.post(url, {
+        name: form.name,
+        email: form.email,
+        password: form.password,
+        license_no: form.license_no,
+        vehicle_pref: form.vehicle_pref || null
+      });
+
+      console.log("🟢 API RESPONSE:", res.data);
+
+      if (res.data?.success) {
+        alert("Driver registered successfully!");
+      } else {
+        alert(res.data?.error || "Registration failed");
+      }
+    } catch (err) {
+      console.error("❌ Error registering driver:", err?.response || err.message || err);
+      alert("Something went wrong: " + (err.response?.data?.error || err.message));
+    }
   };
 
   return (
@@ -33,27 +62,11 @@ export default function DriverRegister() {
       <div className="driver-reg-box">
         <h2>Driver Signup 🚌</h2>
 
-        <input
-          name="name"
-          placeholder="Driver Name"
-          onChange={change}
-        />
-        <input
-          name="license"
-          placeholder="License Number"
-          onChange={change}
-        />
-        <input
-          name="phone"
-          placeholder="Phone Number"
-          onChange={change}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={change}
-        />
+        <input name="name" placeholder="Driver Name" onChange={change} />
+        <input name="email" placeholder="Email" onChange={change} />
+        <input name="license_no" placeholder="License Number" onChange={change} />
+        <input name="vehicle_pref" placeholder="Vehicle Preference (optional)" onChange={change} />
+        <input name="password" type="password" placeholder="Password" onChange={change} />
 
         <button onClick={register}>Register Driver 🚀</button>
       </div>

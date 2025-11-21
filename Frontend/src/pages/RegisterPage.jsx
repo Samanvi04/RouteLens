@@ -35,13 +35,11 @@ export default function RegisterPage() {
       return;
     }
 
-    // FIXED: Proper template string
-    console.log(`📦 Sending Registration Data:, form`);
+    // Log form payload (useful for debugging)
+    console.log("📦 Sending Registration Data:", form);
 
-    // FIXED: Correct endpoint + template string
-   //const baseUrl = `${API_BASE_URL}`;
-
-   const url = "http://localhost:5000/api/admins/register";
+    // Build POST URL from environment variable with fallback
+    const url = `${API_BASE_URL || "http://localhost:5000"}/api/admins/register`;
     console.log(`🔗 Final POST URL: ${url}`);
 
     try {

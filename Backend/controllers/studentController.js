@@ -5,11 +5,13 @@ import {
   updateStudent,
   deleteStudent
 } from "../models/studentModel.js";
+import { hashPassword } from "../utils/auth.js";
 
 export const addStudent = async (req, res) => {
   try {
     const { name, email, password, grade } = req.body;
-    const id = await createStudent(name, email, password, grade);
+    const hashed = await hashPassword(password);
+    const id = await createStudent(name, email, hashed, grade);
     res.json({ success: true, studentId: id });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });

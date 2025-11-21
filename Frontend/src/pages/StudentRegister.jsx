@@ -1,22 +1,51 @@
 import React, { useState } from "react";
-import bgImage from "/src/pages/images/bus1.jpg"; // Local image
+import axios from "axios";
+import bgImage from "/src/pages/images/bus1.jpg";
 import "./StudentRegister.css";
 
 export default function StudentRegister() {
-  const API = import.meta.env.VITE_API_BASE_URL;
+  const API = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    password: ""
+    password: "",
+    grade: ""
   });
 
   const change = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const register = async () => {
-    alert("Student Registered (Backend API not added yet)");
+    if (!form.name || !form.email || !form.password || !form.grade) {
+      alert("Please fill all required fields!");
+      return;
+    }
+
+    // Ensure we include the /api prefix that backend routes use
+    const url = `${API}/api/students/register`;
+    console.log("📡 Student Register API:", url);
+
+    try {
+      const res = await axios.post(url, {
+        name: form.name,
+        email: form.email,
+        password: form.password,
+        grade: form.grade
+      });
+
+      console.log("🟢 API RESPONSE:", res.data);
+
+      if (res.data.success) {
+        alert("Student registered successfully!");
+      } else {
+        alert(res.data.error || "Registration failed");
+      }
+    } catch (err) {
+      console.error("❌ Error:", err);
+      alert("Something went wrong: " + (err.response?.data?.error || err.message));
+    }
   };
 
   return (
@@ -35,8 +64,8 @@ export default function StudentRegister() {
 
         <input name="name" placeholder="Full Name" onChange={change} />
         <input name="email" placeholder="Email" onChange={change} />
-        <input name="phone" placeholder="Phone Number" onChange={change} />
         <input name="password" type="password" placeholder="Password" onChange={change} />
+        <input name="grade" placeholder="Grade/Class" onChange={change} />
 
         <button onClick={register}>Create Account 🚀</button>
       </div>

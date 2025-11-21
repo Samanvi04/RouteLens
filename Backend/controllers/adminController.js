@@ -1,9 +1,11 @@
 import { createAdmin, getAllAdmins } from "../models/adminModel.js";
+import { hashPassword } from "../utils/auth.js";
 
 export const addAdmin = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const id = await createAdmin(name, email, password);
+    const hashed = await hashPassword(password);
+    const id = await createAdmin(name, email, hashed);
     res.json({ success: true, adminId: id });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });

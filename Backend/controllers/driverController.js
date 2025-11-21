@@ -6,11 +6,13 @@ import {
   updateDriver,
   deleteDriver
 } from "../models/driverModel.js";
+import { hashPassword } from "../utils/auth.js";
 
 export const addDriver = async (req, res) => {
   try {
     const { name, email, password, license_no, vehicle_pref } = req.body;
-    const id = await createDriver(name, email, password, license_no, vehicle_pref);
+    const hashed = await hashPassword(password);
+    const id = await createDriver(name, email, hashed, license_no, vehicle_pref);
     res.json({ success: true, driverId: id });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });

@@ -8,8 +8,8 @@ import morgan from 'morgan';
 
 
 import authRoutes from "./routes/authRoutes.js";
-import studentRoutes from "./routes/students.js";
-import driverRoutes from "./routes/drivers.js";
+import studentRoutes from "./routes/studentsRoutes.js";
+import driverRoutes from "./routes/driversRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import busRoutes from "./routes/buses.js";
 import assignmentRoutes from "./routes/assignments.js";
