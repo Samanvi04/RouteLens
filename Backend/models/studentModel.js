@@ -1,8 +1,9 @@
 import { dbQuery } from "../utils/dbQuery.js";
 
-export const createStudent = async (name, email, password, grade) => {
-  const sql = "INSERT INTO students (name, email, password, grade) VALUES (?, ?, ?, ?)";
-  const result = await dbQuery(sql, [name, email, password, grade]);
+export const createStudent = async (name, email, password, grade, lat = null, lng = null) => {
+  const sql = "INSERT INTO students (name, email, password, grade, lat, lng) VALUES (?, ?, ?, ?, ?, ?)";
+  console.log('[studentModel] createStudent params:', { name, email, grade, lat, lng });
+  const result = await dbQuery(sql, [name, email, password, grade, lat, lng]);
   return result.insertId;
 };
 
@@ -27,5 +28,11 @@ export const updateStudent = async (id, name, grade) => {
 
 export const deleteStudent = async (id) => {
   const result = await dbQuery("DELETE FROM students WHERE id = ?", [id]);
+  return result.affectedRows > 0;
+};
+
+export const updateStudentLocation = async (id, lat, lng) => {
+  const sql = "UPDATE students SET lat = ?, lng = ? WHERE id = ?";
+  const result = await dbQuery(sql, [lat, lng, id]);
   return result.affectedRows > 0;
 };

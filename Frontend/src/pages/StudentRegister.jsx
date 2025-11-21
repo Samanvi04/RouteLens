@@ -14,8 +14,7 @@ export default function StudentRegister() {
     grade: ""
   });
 
-  const change = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const change = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const register = async () => {
     if (!form.name || !form.email || !form.password || !form.grade) {
@@ -23,29 +22,42 @@ export default function StudentRegister() {
       return;
     }
 
-    // Ensure we include the /api prefix that backend routes use
-    const url = `${API}/api/students/register`;
-    console.log("📡 Student Register API:", url);
-
-    try {
-      const res = await axios.post(url, {
-        name: form.name,
-        email: form.email,
-        password: form.password,
-        grade: form.grade
-      });
-
-      console.log("🟢 API RESPONSE:", res.data);
-
-      if (res.data.success) {
-        alert("Student registered successfully!");
-      } else {
-        alert(res.data.error || "Registration failed");
-      }
-    } catch (err) {
-      console.error("❌ Error:", err);
-      alert("Something went wrong: " + (err.response?.data?.error || err.message));
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
     }
+
+    // Ask for location
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position;
+
+        const url = `${API}/api/students/register`;
+        console.log("📡 Student Register API:", url);
+
+        try {
+          const res = await axios.post(url, {
+            ...form,
+            lat: latitude,
+            lng: longitude
+          });
+
+          console.log("🟢 API RESPONSE:", res.data);
+
+          if (res.data.success) {
+            alert("Student registered successfully!");
+          } else {
+            alert(res.data.error || "Registration failed");
+          }
+        } catch (err) {
+          console.error("❌ Error:", err);
+          alert("Something went wrong: " + (err.response?.data?.error || err.message));
+        }
+      },
+      () => {
+        alert("Please enable location to register!");
+      }
+    );
   };
 
   return (

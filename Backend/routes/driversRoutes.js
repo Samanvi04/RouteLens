@@ -8,6 +8,7 @@ import {
   removeDriver
 } from "../controllers/driverController.js";
 
+import { setDriverLocation } from "../controllers/driverController.js";
 const router = express.Router();
 
 // POST /drivers/register
@@ -27,5 +28,8 @@ router.put("/:id", editDriver);
 
 // DELETE /drivers/:id
 router.delete("/:id", removeDriver);
+
+// PUT /drivers/:id/location
+router.put("/:id/location", setDriverLocation);
 
 export default router;

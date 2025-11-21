@@ -6,12 +6,22 @@ import {
   deleteStudent
 } from "../models/studentModel.js";
 import { hashPassword } from "../utils/auth.js";
+import { updateStudentLocation } from "../models/studentModel.js";
+
 
 export const addStudent = async (req, res) => {
   try {
-    const { name, email, password, grade } = req.body;
+    const { name, email, password, grade, lat, lng } = req.body;
+    console.log('[studentController] addStudent body:', { name, email, grade, lat, lng });
     const hashed = await hashPassword(password);
-    const id = await createStudent(name, email, hashed, grade);
+    const id = await createStudent(name, email, hashed, grade, lat ?? null, lng ?? null);
+    if (lat != null || lng != null) {
+      try {
+        await updateStudentLocation(id, lat ?? null, lng ?? null);
+      } catch (e) {
+        console.warn('[studentController] updateStudentLocation failed:', e.message);
+      }
+    }
     res.json({ success: true, studentId: id });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -52,6 +62,25 @@ export const removeStudent = async (req, res) => {
     const deleted = await deleteStudent(req.params.id);
     if (!deleted) return res.status(404).json({ success: false, message: "Student not found" });
     res.json({ success: true, message: "Deleted" });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+};
+
+
+export const setStudentLocation = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { lat, lng } = req.body;
+
+    if (lat == null || lng == null) {
+      return res.status(400).json({ success: false, message: "Latitude and longitude required" });
+    }
+
+    const updated = await updateStudentLocation(id, lat, lng);
+    if (!updated) return res.status(404).json({ success: false, message: "Student not found" });
+
+    res.json({ success: true, message: "Location updated" });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }

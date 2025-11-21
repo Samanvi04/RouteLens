@@ -7,6 +7,8 @@ import {
   removeStudent
 } from "../controllers/studentController.js";
 
+import { setStudentLocation } from "../controllers/studentController.js";
+
 const router = express.Router();
 
 // POST /students/register
@@ -23,5 +25,7 @@ router.put("/:id", editStudent);
 
 // DELETE /students/:id
 router.delete("/:id", removeStudent);
+
+router.put("/:id/location", setStudentLocation);
 
 export default router;

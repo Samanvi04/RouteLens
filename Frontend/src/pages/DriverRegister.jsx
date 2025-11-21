@@ -22,30 +22,43 @@ export default function DriverRegister() {
       return;
     }
 
-    const url = `${API}/api/drivers/register`;
-    console.log("📡 Driver Register API:", url);
-    console.log("📦 Payload:", form);
-
-    try {
-      const res = await axios.post(url, {
-        name: form.name,
-        email: form.email,
-        password: form.password,
-        license_no: form.license_no,
-        vehicle_pref: form.vehicle_pref || null
-      });
-
-      console.log("🟢 API RESPONSE:", res.data);
-
-      if (res.data?.success) {
-        alert("Driver registered successfully!");
-      } else {
-        alert(res.data?.error || "Registration failed");
-      }
-    } catch (err) {
-      console.error("❌ Error registering driver:", err?.response || err.message || err);
-      alert("Something went wrong: " + (err.response?.data?.error || err.message));
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
     }
+
+    // Ask for location
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position;
+
+        const url = `${API}/api/drivers/register`;
+        console.log("📡 Driver Register API:", url);
+        console.log("📦 Payload:", form);
+
+        try {
+          const res = await axios.post(url, {
+            ...form,
+            lat: latitude,
+            lng: longitude
+          });
+
+          console.log("🟢 API RESPONSE:", res.data);
+
+          if (res.data?.success) {
+            alert("Driver registered successfully!");
+          } else {
+            alert(res.data?.error || "Registration failed");
+          }
+        } catch (err) {
+          console.error("❌ Error registering driver:", err?.response || err.message || err);
+          alert("Something went wrong: " + (err.response?.data?.error || err.message));
+        }
+      },
+      () => {
+        alert("Please enable location to register!");
+      }
+    );
   };
 
   return (

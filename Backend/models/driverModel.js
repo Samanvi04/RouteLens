@@ -1,11 +1,12 @@
 import { dbQuery } from "../utils/dbQuery.js";
 
-export const createDriver = async (name, email, password, license_no, vehicle_pref) => {
+export const createDriver = async (name, email, password, license_no, vehicle_pref, lat = null, lng = null) => {
   const sql = `
-    INSERT INTO drivers (name, email, password, license_no, vehicle_pref, is_verified)
-    VALUES (?, ?, ?, ?, ?, 0)
+    INSERT INTO drivers (name, email, password, license_no, vehicle_pref, lat, lng, is_verified)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 0)
   `;
-  const result = await dbQuery(sql, [name, email, password, license_no, vehicle_pref || null]);
+  console.log('[driverModel] createDriver params:', { name, email, license_no, vehicle_pref, lat, lng });
+  const result = await dbQuery(sql, [name, email, password, license_no, vehicle_pref || null, lat, lng]);
   return result.insertId;
 };
 
@@ -38,5 +39,11 @@ export const updateDriver = async (id, license_no, vehicle_pref) => {
 
 export const deleteDriver = async (id) => {
   const result = await dbQuery("DELETE FROM drivers WHERE id = ?", [id]);
+  return result.affectedRows > 0;
+};
+
+export const updateDriverLocation = async (id, lat, lng) => {
+  const sql = "UPDATE drivers SET lat = ?, lng = ? WHERE id = ?";
+  const result = await dbQuery(sql, [lat, lng, id]);
   return result.affectedRows > 0;
 };
