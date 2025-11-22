@@ -21,6 +21,14 @@ export const getStopsByRoute = async (routeId) => {
   );
 };
 
+/* -------------------- GET ALL STOPS FOR A BUS -------------------- */
+export const getStopsByBus = async (busId) => {
+  return await dbQuery(
+    `SELECT * FROM stops WHERE bus_id = ? ORDER BY stop_order ASC`,
+    [busId]
+  );
+};
+
 /* -------------------- GET A SINGLE STOP -------------------- */
 export const getStopById = async (id) => {
   const rows = await dbQuery(

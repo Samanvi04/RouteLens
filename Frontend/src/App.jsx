@@ -18,6 +18,7 @@ import StartJourney from "/src/pages/driver/StartJourney";
 
 import DriverProfile from "/src/pages/driver/DriverProfile";
 import StudentSubscriptions from "/src/pages/student/StudentSubscription";
+import StudentMap from "/src/pages/student/StudentMap";
 
 
 import StudentHistory from "/src/pages/student/StudentHistory";
@@ -64,6 +65,7 @@ export default function App() {
 
 
 <Route path="/student/history" element={<StudentHistory />} />
+  <Route path="/student/map" element={<StudentMap />} />
   <Route path="/admin/dashboard" element={<AdminDashboard />} />
    
         <Route path="/admin/assignments" element={<Assignments />} />

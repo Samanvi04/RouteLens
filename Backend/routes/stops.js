@@ -8,6 +8,7 @@ import {
   reorderStops,
   bulkAddStops
 } from "../models/stopModel.js";
+import { getStopsByBus } from "../models/stopModel.js";
 
 const router = express.Router();
 
@@ -26,6 +27,16 @@ router.post("/", async (req, res) => {
 router.get("/route/:routeId", async (req, res) => {
   try {
     const stops = await getStopsByRoute(req.params.routeId);
+    res.json({ success: true, data: stops });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/* GET STOPS FOR A BUS */
+router.get("/bus/:busId", async (req, res) => {
+  try {
+    const stops = await getStopsByBus(req.params.busId);
     res.json({ success: true, data: stops });
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -16,6 +16,12 @@ export const getStudentById = async (id) => {
   return rows[0] || null;
 };
 
+export const getStudentByName = async (name) => {
+  // case-insensitive match
+  const rows = await dbQuery("SELECT id, name, email, grade, lat, lng, assigned_bus FROM students WHERE LOWER(name) = LOWER(?) LIMIT 1", [name]);
+  return rows[0] || null;
+};
+
 export const getStudentByEmail = async (email) => {
   const rows = await dbQuery("SELECT * FROM students WHERE email = ?", [email]);
   return rows[0] || null;

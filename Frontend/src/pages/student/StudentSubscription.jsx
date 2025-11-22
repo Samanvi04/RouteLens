@@ -20,16 +20,27 @@ export default function StudentSubscriptions() {
       }
     };
     fetchBuses();
+    // restore any previously selected bus (e.g., from SelectBus or page reload)
+    try {
+      const stored = localStorage.getItem('selectedBus');
+      if (stored) setSelectedBus(String(stored));
+    } catch (e) {}
   }, []);
 
   const handleSelect = async () => {
     const studentId = localStorage.getItem("userId");
     if (!studentId) return alert("You must be logged in as a student to subscribe to a bus");
-    if (!selectedBus) return alert("Select a bus first");
+    // allow fallback to stored selection
+    const busToAssign = selectedBus || localStorage.getItem('selectedBus');
+    if (!busToAssign) return alert("Select a bus first");
 
     setLoading(true);
     try {
-      await axios.put(`${API}/api/students/${studentId}/assign-bus`, { bus_id: selectedBus });
+      // ensure numeric id when possible
+      const payloadBusId = isNaN(Number(busToAssign)) ? busToAssign : Number(busToAssign);
+      await axios.put(`${API}/api/students/${studentId}/assign-bus`, { bus_id: payloadBusId });
+      // persist selection
+      try { localStorage.setItem('selectedBus', String(payloadBusId)); } catch (e) {}
       // after successful assign, navigate to student map route
       navigate('/student/map');
     } catch (err) {
@@ -46,6 +57,8 @@ export default function StudentSubscriptions() {
     // Navigate to the common student map route for any bus card
     navigate('/student/map');
   };
+
+  const isSelectable = (!!selectedBus || !!localStorage.getItem('selectedBus')) && !loading;
 
   return (
     <div className="page-container">
@@ -80,7 +93,7 @@ export default function StudentSubscriptions() {
         {buses.length === 0 && <p>No buses available</p>}
       </div>
 
-      <button className="btn-primary" disabled={!selectedBus || loading} onClick={handleSelect}>
+      <button className="btn-primary" disabled={!isSelectable} onClick={handleSelect}>
         {loading ? 'Assigning...' : 'Select'}
       </button>
     </div>
