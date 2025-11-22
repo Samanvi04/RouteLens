@@ -1,42 +1,31 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import RoleSelect from "./pages/RoleSelect";
 import Login from "./pages/Login";
 import AdminRegister from "./pages/AdminRegister.jsx";
 import DriverRegister from "./pages/DriverRegister.jsx";
 import StudentRegister from "./pages/StudentRegister.jsx";
-
-
 import AdminDashboard from "/src/pages/admin/AdminDashboard.jsx";
 import DriverDashboard from "/src/pages/driver/DriverDashboard.jsx";
 import StudentDashboard from "/src/pages/student/StudentDashboard.jsx";
 import DriverNavbar from "/src/pages/driver/DriverNavbar";
 import DriverHome from "/src/pages/driver/DriverHome";
 import SelectBus from "/src/pages/driver/SelectBus";
-
 import StartJourney from "/src/pages/driver/StartJourney";
-
 import DriverProfile from "/src/pages/driver/DriverProfile";
 import StudentSubscriptions from "/src/pages/student/StudentSubscription";
-import StudentMap from "/src/pages/student/StudentMap";
-
 
 import StudentHistory from "/src/pages/student/StudentHistory";
 
-import AdminManage from "./pages/admin/AdminManage.jsx"; 
+
 
 import AdminCrowd from "./pages/Admin/AdminCrowd";
-
 import ChatBot from "./pages/Student/ChatBot"; 
 
 import RatingPage from "./pages/Student/RatingPage";
-
 import Assignments from "/src/pages/admin/Assignments";
 import LiveMap from "/src/pages/admin/LiveMap";
 import Maintenance from "/src/pages/admin/Maintenance";
-import DriverSection from "/src/pages/admin/DriverSection";
-import BusSection from "/src/pages/admin/BusSection";
-import RouteSection from "/src/pages/admin/RouteSection";
+
 
 export default function App() {
   return (
